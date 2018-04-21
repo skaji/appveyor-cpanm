@@ -37,7 +37,7 @@ sub run {
     my($stdout, $stderr, $exit) = capture {
         system $cmd;
     };
-    ::diag($stderr) if $stderr and !$ENV{NODIAG};  # Some tests actually want stderr
+    # ::diag($stderr) if $stderr and !$ENV{NODIAG};  # Some tests actually want stderr
     return wantarray ? ($stdout, $stderr, $exit) : $stdout;
 }
 
