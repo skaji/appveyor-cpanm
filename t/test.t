@@ -7,7 +7,7 @@ use Run;
 diag "";
 diag "cpanm_V: $_" for split /\n/, cpanm_V;
 
-my ($stdout, $stderr, $exit) = run "App::FatPacker";
+my ($stdout, $stderr, $exit) = run 'CPAN::Test::Dummy::Perl5::Make::Zip', "Plack", ;
 
 diag "stdout: $_" for split /\n/, $stdout;
 diag "stderr: $_" for split /\n/, $stderr;
