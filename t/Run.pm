@@ -7,14 +7,15 @@ use Capture::Tiny qw(capture);
 use File::Temp qw(tempdir);
 use File::Which qw(which);
 use Win32::ShellQuote qw(quote_native);
+use Cwd qw(abs_path);
 
-my $executable = which "cpanm";
+my $executable = $ENV{TEST_CPANM_PATH} ? abs_path($ENV{TEST_CPANM_PATH}) : which "cpanm";
 
 delete $ENV{PERL_CPANM_OPT};
 $ENV{PERL_CPANM_HOME} = tempdir(CLEANUP => 1);
 
 sub cpanm_V {
-    my $cmd = quote_native $executable, "-V";
+    my $cmd = quote_native $^X, $executable, "-V";
     `$cmd`;
 }
 
