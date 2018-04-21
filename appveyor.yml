@@ -10,5 +10,8 @@ install:
   - SET "PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%"
 test_script:
   - git clone https://github.com/miyagawa/cpanminus.git
+  - cd cpanminus
+  - git log -1
+  - cd ..
   - SET "TEST_CPANM_PATH=cpanminus\App-cpanminus\script\cpanm.PL"
   - prove t
